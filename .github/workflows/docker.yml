@@ -24,3 +24,13 @@ jobs:
             - name: 开始构建
               run: |
                   docker build -t myapp:latest .
+
+            - name: 导出 Docker 镜像
+              run: |
+                  docker save myapp:latest -o myapp.tar
+                  
+            - name: 上传构建产物
+              uses: actions/upload-artifact@v4
+              with:
+                  name: myapp
+                  path: myapp.zip
