@@ -1,0 +1,21 @@
+name: My Build Test
+
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+        
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: 输出环境信息
+              run: |
+                  echo "内核版本：$(uname -a)"
+                  echo "docker版本：$(docker --version)"
+
+            - name: 开始构建
+              run: |
+                  docker build -t myapp:latest .
