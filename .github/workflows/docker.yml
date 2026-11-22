@@ -11,6 +11,10 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
+                # 下载仓库代码
+            - name: Checkout
+              uses: actions/checkout@v4
+              
             - name: 输出环境信息
               run: |
                   echo "内核版本：$(uname -a)"
