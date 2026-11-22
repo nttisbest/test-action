@@ -15,6 +15,7 @@ jobs:
               run: |
                   echo "内核版本：$(uname -a)"
                   echo "docker版本：$(docker --version)"
+                  ls -lah
 
             - name: 开始构建
               run: |
